@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("education")
-@CrossOrigin(origins = "https://portfoliovdr.web.app/")
+@CrossOrigin
 public class ControllerEducacion {
     @Autowired
     ServiceEducacion serviceEducacion;
@@ -40,7 +40,7 @@ public class ControllerEducacion {
         if(serviceEducacion.existsByTitulo(dtoedu.getTitulo()))
             return new ResponseEntity (new Mensaje("Esa Educación ya existe"), HttpStatus.BAD_REQUEST);
         Educacion educacion = new Educacion(dtoedu.getTitulo(), dtoedu.getInstitucion()
-        ,dtoedu.getConocimientos(), dtoedu.getInicio(), dtoedu.getFin());
+        ,dtoedu.getConocimientos(), dtoedu.getInicio(), dtoedu.getFin(), dtoedu.getImg());
 
         serviceEducacion.save(educacion);
 
@@ -62,6 +62,7 @@ public class ControllerEducacion {
         educacion.setConocimientos(dtoedu.getConocimientos());
         educacion.setInicio(dtoedu.getInicio());
         educacion.setFin(dtoedu.getFin());
+        educacion.setImg(dtoedu.getImg());
 
         serviceEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("Educación actualizada"), HttpStatus.OK); 

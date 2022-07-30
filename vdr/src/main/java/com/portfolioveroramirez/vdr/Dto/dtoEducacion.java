@@ -13,16 +13,18 @@ public class dtoEducacion {
     private String conocimientos;
     private String inicio;
     private String fin;
+    private String img;
 
     public dtoEducacion() {
     }
 
-    public dtoEducacion(String titulo, String institucion, String conocimientos, String inicio, String fin) {
+    public dtoEducacion(String titulo, String institucion, String conocimientos, String inicio, String fin, String img) {
         this.titulo = titulo;
         this.institucion = institucion;
         this.conocimientos = conocimientos;
         this.inicio = inicio;
         this.fin = fin;
+        this.img = img;
     }
 
     public String getTitulo() {
@@ -64,6 +66,16 @@ public class dtoEducacion {
     public void setFin(String fin) {
         this.fin = fin;
     }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+    
+    
 
     
     
